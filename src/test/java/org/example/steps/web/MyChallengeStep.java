@@ -12,7 +12,7 @@ import static org.example.utils.FilePath.FileUploadCreateChallenge;
 public class MyChallengeStep {
     MyChallengePage myChallengePage = new MyChallengePage();
 
-    @And("A Challenge just create display")
+    @And("A Challenge just created displays")
     public void verifyChallengeExist() {
         myChallengePage.verifyChallengeExist(titleChallenge);
     }

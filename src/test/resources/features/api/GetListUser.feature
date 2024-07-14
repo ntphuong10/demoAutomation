@@ -1,16 +1,16 @@
-Feature: API Test Feature
+Feature: Get list feature
 
   Background:
     Given I have an user
-    And I call API Login-Successful
+    When I call API to login into the user
     Then The API should return status 200
 
   @TC_05 @smoke @api
-  Scenario Outline: get list user
-    When I call API get list User with page "<page>"
+  Scenario Outline: Get list user
+    When I call API to get list of users with page "<page>"
     Then API should return status <status> and have <quantity user> user
     Examples:
       | page | quantity user | status |
-      |      | 6             | 200    |
+      | 100  | 0             | 200    |
       | 2    | 6             | 200    |
       | 3    | 0             | 200    |

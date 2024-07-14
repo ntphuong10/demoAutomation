@@ -1,16 +1,16 @@
 Feature: Demo Ctflearn
 
   Background:
-    Given Go to website
-    And Click login button
-    And Login with username "thuphuong13110" and password "123456"
+    Given Go to the website
+    When I click on the login button
+    Then I can login with username "thuphuong13110" and password "123456"
 
   @TC_01 @smoke @challenge @web @testcase
   Scenario Outline: Create A Challenge
     Given Go to "Create A Challenge" Page
     When Input title "<title>", flag "<flag>", file "<file>" and how to solve "<howtosolve>"
-    And Click submit button and check error "<error>" if exist
-    Then Click Logout button
+    And Click on submit button and check error "<error>" if existing
+    Then Click on the logout button
     Examples:
       | title    | flag         | file    | howtosolve               | error                                              |
       | autotest | flagAutotest | default | autotestautotestautotest |                                                    |
@@ -20,10 +20,10 @@ Feature: Demo Ctflearn
   Scenario Outline: Create A Challenge
     Given Go to "Create A Challenge" Page
     When Input title "<title>", flag "<flag>", file "<file>" and how to solve "<howtosolve>"
-    And Click submit button and check error "<error>" if exist
+    And Click on submit button and check error "<error>" if existing
     And Go to "My Challenge" Page
-    Then A Challenge just create display
-    When Click Logout button
+    Then A Challenge just created displays
+    And Click on the logout button
     Examples:
       | title    | flag         | file    | howtosolve               | error |
       | autotest | flagAutotest | default | autotestautotestautotest |       |

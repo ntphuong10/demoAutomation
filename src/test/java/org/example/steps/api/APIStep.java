@@ -31,7 +31,7 @@ public class APIStep {
         API_URL = EnvironmentConfig.URL_API;
     }
 
-    @When("I call API Login-Successful")
+    @When("I call API to login into the user")
     public void iCallAPIToGetUser() {
         response = baseAPI.postAPI(API_URL, APIPath.LOGIN, helper.readFileAsJson(LoginBody, true));
     }
@@ -50,14 +50,14 @@ public class APIStep {
         arrayData = (ArrayNode) body.get("data");
     }
 
-    @And("I call API get a User random")
+    @And("I call API to get a random user")
     public void iGetAUserRandom() {
         userID = arrayData.get(helper.randomInt(arrayData.size())).get("id").asInt();
         response = baseAPI.getAPI(API_URL + APIPath.LIST_USERS + "/" + userID, token);
         Assert.assertEquals(200, response.statusCode());
     }
 
-    @And("I call API update name user is {string} and job is {string}")
+    @And("I call API to update the user's name as {string} and job as {string}")
     public void iCallAPIUpdateNameUserIsAndJobIs(String name, String job) {
         ObjectNode body = helper.readFileAsJson(UpdateUserBody, true);
         body.put("name", name);
@@ -70,7 +70,7 @@ public class APIStep {
     }
 
 
-    @And("I call API Login-Successful with user {string} and password {string}")
+    @And("I call API to login into the user with user {string} and password {string}")
     public void iCallAPILoginSuccessfulWithUserAndPassword(String user, String password) {
         ObjectNode body = helper.readFileAsJson(LoginBody, true);
         body.put("email", user);
@@ -87,11 +87,11 @@ public class APIStep {
         }
     }
 
-    @When("I call API get list User with page {string}")
+    @When("I call API to get list of users with page {string}")
     public void iCallAPIGetListUserWithPage(String page) {
         ObjectNode body = helper.readFileAsJson(GetListUserParam, true);
         body.put("page", page);
-        response = baseAPI.getAPI(API_URL + APIPath.LIST_USERS, token, helper.readJsonAsMap(body.toString(), false));
+        response = baseAPI.getAPI(API_URL + APIPath.LIST_USERS+"checkPath", token, helper.readJsonAsMap(body.toString(), false));
     }
 
     @Then("^API should return status ([^\"]*) and have ([^\"]*) user$")

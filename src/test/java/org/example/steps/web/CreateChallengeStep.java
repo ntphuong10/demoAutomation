@@ -21,7 +21,7 @@ public class CreateChallengeStep {
         createChallengePage.inputHowtosolve(content + helper.convertDateToInt());
     }
 
-    @And("Click submit button and check error {string} if exist")
+    @And("Click on submit button and check error {string} if existing")
     public void clickSubmitButtonAndCheckErrorIfExist(String error) {
         createChallengePage.submit();
         if (!error.isEmpty()) {

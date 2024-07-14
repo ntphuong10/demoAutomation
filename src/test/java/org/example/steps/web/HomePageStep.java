@@ -18,7 +18,7 @@ public class HomePageStep {
         }
     }
 
-    @When("Click Logout button")
+    @When("Click on the logout button")
     public void clickLogoutButton() {
         homePage.clickIconProfile();
         homePage.clickLogoutButton();

@@ -1,9 +1,9 @@
-Feature: API Test Feature
+Feature: Login API feature
 
   @TC_03 @smoke @api
-  Scenario Outline: login
+  Scenario Outline: Login into the user
     Given I have an user
-    And I call API Login-Successful with user "<user>" and password "<password>"
+    When I call API to login into the user with user "<user>" and password "<password>"
     Then The API should return status <status> and error "<error>"
     Examples:
       | user               | password   | status | error                     |
